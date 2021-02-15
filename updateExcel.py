@@ -5,7 +5,7 @@ import readPDF_forever21 as read
 
 #parsedData = extractPoIHD_Dictionary('.')
 
-directory = r'/Users/andrewding/Desktop/F21f'
+directory = ' '
 
 parsedData = read.extractPoIHD_Dictionary(directory)
 
