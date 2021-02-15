@@ -1,9 +1,5 @@
 import os, PyPDF2, re
 
-directory = r'/Users/andrewding/Desktop/F21f'
-
-directoryList = os.listdir(directory)
-
 #extract first Page PDF text, return as String
 def extractPDF_Text(fileName):
     pdfFileObj = open(fileName, 'rb')
@@ -63,9 +59,6 @@ def printPrettyDictionary(dictionary):
 #for i in range(len(directoryList)):
    # parsedData = parsePoIHD(os.path.join(directory, directoryList[i]))
 
-parsedData1 = extractPoIHD_Dictionary(directory)
 
-printPrettyDictionary(parsedData1)
 
-    
         

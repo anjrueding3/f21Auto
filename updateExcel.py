@@ -1,42 +1,51 @@
 from openpyxl import Workbook, load_workbook
+import os, PyPDF2, re
+import readPDF_forever21 as read
 
-workbook = load_workbook('/Users/andrewding/Desktop/poIHDTarget.xlsx')
-sheet = workbook.active
+
+#parsedData = extractPoIHD_Dictionary('.')
+
+directory = r'/Users/andrewding/Desktop/F21f'
+
+parsedData = read.extractPoIHD_Dictionary(directory)
+
+targetExcel = '/Users/andrewding/Desktop/poIHDTarget.xlsx'
+
+
+#pass in target excel file, data dictionary, fills in excel file
+def updateExcel(targetExcelFile, parsedData):
+
+    workbook = load_workbook(targetExcelFile)
+    sheet = workbook.active
     
-parsedData = {'20012207': '06/25/2020',
-              '21002809': '07/05/2021', '21008188': '07/08/2021', '21002111': '06/01/2021',
-              '21008190': '07/08/2021', '21002046': '06/21/2021', '21002546': '06/18/2021'}
 
-maxRow = sheet.max_row
+    maxRow = sheet.max_row
     
 
-for key in parsedData:
+    for key in parsedData:
 
-    matchFound = False
+        matchFound = False
   
-    for i in range(maxRow):
-        actualCell = i + 1
-        actualPO = 'A' + str(actualCell)
-        actualIHD = 'B' + str(actualCell)
+        for i in range(maxRow):
+            actualCell = i + 1
+            actualPO = 'A' + str(actualCell)
+            actualIHD = 'B' + str(actualCell)
 
-        if int(key) == sheet[actualPO].value:
-            sheet[actualIHD] = parsedData[key]
-            matchFound = True
-            break
+            if int(key) == sheet[actualPO].value:
+                sheet[actualIHD] = parsedData[key]
+                matchFound = True
+                break
 
-    if matchFound == False:
-        nextEmptyCellNum = maxRow + 1
-        emptyPO = 'A' + str(nextEmptyCellNum)
-        emptyIHD = 'B' + str(nextEmptyCellNum)
-        sheet[emptyPO] = int(key)
-        sheet[emptyIHD] = parsedData[key]
-        maxRow += 1
+        if matchFound == False:
+            nextEmptyCellNum = maxRow + 1
+            emptyPO = 'A' + str(nextEmptyCellNum)
+            emptyIHD = 'B' + str(nextEmptyCellNum)
+            sheet[emptyPO] = int(key)
+            sheet[emptyIHD] = parsedData[key]
+            maxRow += 1
     
 
-workbook.save(filename='/Users/andrewding/Desktop/poIHDTarget.xlsx')
+    workbook.save(filename= targetExcelFile)
 
+updateExcel(targetExcel, parsedData)
 
-
-    
-   # if int(key) == sheet['A2'].value:
-        #print(key + ' ' + str(sheet['A2'].value))
