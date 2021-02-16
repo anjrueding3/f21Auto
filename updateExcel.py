@@ -5,11 +5,11 @@ import readPDF_forever21 as read
 
 #parsedData = extractPoIHD_Dictionary('.')
 
-directory = r'/Users/andrewding/Desktop/F21f'
+directory = #commandLineArgs[1]
 
 parsedData = read.extractPoIHD_Dictionary(directory)
 
-targetExcel = '/Users/andrewding/Desktop/poIHDTarget.xlsx'
+targetExcel = #commandLineArgs[2]
 
 
 #pass in target excel file, data dictionary, fills in excel file
