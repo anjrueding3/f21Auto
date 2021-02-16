@@ -1,15 +1,17 @@
+#! python3
+
 from openpyxl import Workbook, load_workbook
-import os, PyPDF2, re
+import os, PyPDF2, re, sys
 import readPDF_forever21 as read
 
 
 #parsedData = extractPoIHD_Dictionary('.')
 
-directory = ' '
+directory = sys.argv[1]
 
 parsedData = read.extractPoIHD_Dictionary(directory)
 
-targetExcel = '/Users/andrewding/Desktop/poIHDTarget.xlsx'
+targetExcel = sys.argv[2]
 
 
 #pass in target excel file, data dictionary, fills in excel file
