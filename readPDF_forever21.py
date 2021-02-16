@@ -54,7 +54,6 @@ def printPrettyDictionary(dictionary):
 
     
 #os.path.join(directory, directoryList[i]) = directory + file name
-#need to think of potential errors. If mommy adds something wrong to folder.
     
 #for i in range(len(directoryList)):
    # parsedData = parsePoIHD(os.path.join(directory, directoryList[i]))
