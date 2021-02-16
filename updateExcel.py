@@ -17,15 +17,12 @@ def updateExcel(targetExcelFile, parsedData):
 
     workbook = load_workbook(targetExcelFile)
     sheet = workbook.active
-    
 
     maxRow = sheet.max_row
-    
 
     for key in parsedData:
-
         matchFound = False
-  
+        
         for i in range(maxRow):
             actualCell = i + 1
             actualPO = 'A' + str(actualCell)
@@ -44,8 +41,8 @@ def updateExcel(targetExcelFile, parsedData):
             sheet[emptyIHD] = parsedData[key]
             maxRow += 1
     
-
     workbook.save(filename= targetExcelFile)
 
+#call update function
 updateExcel(targetExcel, parsedData)
 
