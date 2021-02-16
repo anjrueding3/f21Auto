@@ -13,8 +13,9 @@
 
 # To Use Code:
 
-##### Clone 
+##### 1. Clone 
 
-##### Navigate to project src code folder in Terminal
+##### 2. Navigate to project src code folder in Terminal
 
+##### 3. Run:
 `./main.py __directoryName__ __targetExcelFile__`
