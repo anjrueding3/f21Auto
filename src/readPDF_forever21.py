@@ -47,15 +47,14 @@ def extractPoIHD_Dictionary(directory):
             print(directoryList[i] + ' is not a pdf')
     return parsedData
 
+
 #print formatted dictionary
 def printPrettyDictionary(dictionary):
     for key in dictionary:
-        print(key + ': ' + dictionary[key])
+        print(key + ': ' +
+              dictionary[key])
         
 
-
-
-    
 #os.path.join(directory, directoryList[i]) = directory + file name
 #need to think of potential errors. If mommy adds something wrong to folder.
     
