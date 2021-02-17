@@ -41,8 +41,10 @@ def extractPoIHD_Dictionary(directory):
     parsedData = {}
     
     for i in range(len(directoryList)):
-        parsedData[extractPO(os.path.join(directory, directoryList[i]))] = extractIHD(os.path.join(directory, directoryList[i]))
-
+        if directoryList[i].endswith('.pdf'):
+            parsedData[extractPO(os.path.join(directory, directoryList[i]))] = extractIHD(os.path.join(directory, directoryList[i]))
+        else:
+            print(directoryList[i] + ' is not a pdf')
     return parsedData
 
 #print formatted dictionary
@@ -50,6 +52,7 @@ def printPrettyDictionary(dictionary):
     for key in dictionary:
         print(key + ': ' + dictionary[key])
         
+
 
 
     
