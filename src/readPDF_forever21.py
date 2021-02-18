@@ -51,7 +51,6 @@ def printPrettyDictionary(dictionary):
         print(key + ': ' + dictionary[key])
         
 
-
     
 #os.path.join(directory, directoryList[i]) = directory + file name
 #need to think of potential errors. If mommy adds something wrong to folder.
